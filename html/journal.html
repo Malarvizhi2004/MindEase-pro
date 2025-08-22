@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>🌈 Mood Journal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../css/journal.css" />
+</head>
+<body>
+  <div class="header-bar">
+    <a href="../html/mood.html" class="back-arrow" title="Go back">← Back</a>
+  <div class="container">
+    <div class="whole">
+
+    
+    
+    <h1>🌈 Mood Journal</h1>
+    </div>
+
+    <select id="moodSelect">
+      <option value="">Select your mood</option>
+      <option value="happy">😊 Happy</option>
+      <option value="sad">😢 Sad</option>
+      <option value="angry">😠 Angry</option>
+      <option value="tired">😴 Tired</option>
+      <option value="calm">😌 Calm</option>
+      <option value="anxious">😨 Anxious</option>
+    </select>
+
+    <textarea id="noteInput" placeholder="Write about your day..."></textarea>
+    <button onclick="addEntry()">Add Mood Note</button>
+
+    <div class="filter">
+      <select id="filterMood" onchange="renderEntries()">
+        <option value="">Filter by mood</option>
+        <option value="happy">😊 Happy</option>
+        <option value="sad">😢 Sad</option>
+        <option value="angry">😠 Angry</option>
+        <option value="tired">😴 Tired</option>
+        <option value="calm">😌 Calm</option>
+        <option value="anxious">😨 Anxious</option>
+      </select>
+      <button onclick="exportData()">Export JSON</button>
+    </div>
+
+    <div id="journalEntries"></div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="editModal">
+    <div class="modal-content">
+      <h3>Edit Note</h3>
+      <textarea id="editNoteText"></textarea>
+      <button onclick="saveEdit()">Save</button>
+      <button class="close-btn" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+  </div>
+
+  <script src="../js/journal.js"></script>
+</body>
+</html>

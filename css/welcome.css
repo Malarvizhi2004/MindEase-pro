@@ -1,0 +1,162 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;   /* 🚫 stop horizontal scroll */
+  overflow-y: auto;     /* ✅ allow vertical scroll */
+}
+/* Background */
+.welcome-container {
+position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh; 
+  background-image: url('../Images/meditation.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: bgZoom 12s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Gradient overlay effect */
+.overlay {
+  position: relative;   /* ⬅ instead of absolute */
+  min-height: 100vh;  
+  
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+  animation: fadeIn 2s ease-in-out;
+
+  /* ✅ allow clicks on children */
+  pointer-events: none;
+  z-index: 1;
+}
+.overlay * { pointer-events: auto; }
+
+/* Title */
+.overlay h1 {
+  font-size: 4.5rem;
+  color: #fff;
+  text-shadow: 0 0 20px #00eaff, 0 0 40px #0077ff;
+  animation: glowPulse 3s infinite alternate, slideDown 1.2s ease-out;
+}
+
+/* Subtitle */
+.overlay h2 {
+  font-size: 2rem;
+  color: #ffea00;
+  margin: 15px 0;
+  animation: fadeIn 2.5s ease-in-out;
+  text-shadow: 0 0 10px #ffea00;
+}
+
+/* Description */
+.overlay p {
+  font-size: 1.2rem;
+  color: #eaeaea;
+  max-width: 650px;
+  margin: 20px auto;
+  line-height: 1.6;
+  animation: fadeIn 3s ease-in-out;
+}
+
+/* Button */
+.enter-button {
+  position: relative; 
+  z-index: 2;
+  padding: 14px 40px;
+  font-size: 1.3rem;
+  margin-top: 30px;
+  border: none;
+  background: linear-gradient(135deg, #00ffc3, #00c3ff, #9d00ff);
+  background-size: 300% 300%;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 255, 204, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: gradientMove 6s ease infinite, floatButton 3s ease-in-out infinite;
+}
+.enter-button:hover {
+  transform: scale(1.15) rotate(2deg);
+  box-shadow: 0 12px 30px rgba(0, 255, 204, 0.9);
+}
+.enter-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 10px rgba(0, 255, 204, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideDown { from { transform: translateY(-60px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes bgZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+@keyframes glowPulse { from { text-shadow: 0 0 20px #00eaff, 0 0 40px #0077ff; } to { text-shadow: 0 0 30px #ff00ff, 0 0 60px #ff0080; } }
+@keyframes gradientMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes floatButton { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* 📱 Mobile (max 600px) */
+@media (max-width: 600px) {
+  .overlay h1 {
+    font-size: 2.5rem;
+  }
+  .overlay h2 {
+    font-size: 1.3rem;
+  }
+  .overlay p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+  .enter-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+
+     .chat-icon {
+    position: fixed;     /* ✅ will now stay constant */
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+  }
+
+  .chat-icon img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* 📱💻 Tablet (600px–1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .overlay h1 {
+    font-size: 3.2rem;
+  }
+  .overlay h2 {
+    font-size: 1.6rem;
+  }
+  .overlay p {
+    font-size: 1.1rem;
+    max-width: 500px;
+  }
+  .enter-button {
+    padding: 12px 32px;
+    font-size: 1.1rem;
+  }
+}

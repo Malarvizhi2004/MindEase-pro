@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Pet Game</title>
+  <link rel="stylesheet" href="../css/pet.css">
+</head>
+<body>
+   <div class="header-bar">
+    <a href="../html/mood.html" class="back-arrow" title="Go back">← Back</a>
+
+  <h1>🐾 Virtual Pet World</h1>
+  </div>
+  <div>
+    <label>Select your pet:</label>
+    <select id="pet-select">
+      <option value="🐱">🐱 Cat</option>
+      <option value="🐶">🐶 Dog</option>
+      <option value="🦁">🦁 Lion</option>
+      <option value="🐰">🐰 Rabbit</option>
+      <option value="🐼">🐼 Panda</option>
+    </select>
+    <input type="text" id="pet-name" placeholder="Enter pet name" />
+    <button onclick="startGame()">Start</button>
+  </div>
+
+  <div id="menu">
+    <div id="pet-emoji">🐱</div>
+    <h2 id="name-label">Your pet</h2>
+    <button class="menu-btn" onclick="showSection('game')">🎮 Play</button>
+    <button class="menu-btn" onclick="showSection('eat')">🍽️ Eat</button>
+    <button class="menu-btn" onclick="showSection('sleep')">🛌 Sleep</button>
+    <button class="menu-btn" onclick="showSection('outing')">🌆 Outing</button>
+  </div>
+
+  <div id="game-area">
+    <h3>🎮 Catch the Balls!</h3>
+    <div id="game-box">
+      <div id="catcher">🐱</div>
+    </div>
+    <div id="score">Score: 0</div>
+    <div id="high-score-box">🏆 High Score: 0</div>
+    <div id="appreciation-message"></div>
+    <button onclick="backToMenu()">Back</button>
+  </div>
+
+  <div id="eat-area">
+    <h3>🍽️ Feed your pet!</h3>
+    <div class="food-container">
+      <div class="food-pet" id="foodPet">🐱</div>
+      <div class="reaction" id="reaction"></div>
+      <div class="food-tray" id="foodTray">
+        <div class="food-item">🍗</div><div class="food-item">🍖</div><div class="food-item">🍕</div>
+        <div class="food-item">🍔</div><div class="food-item">🥩</div><div class="food-item">🍜</div>
+        <div class="food-item">🍩</div><div class="food-item">🍰</div><div class="food-item">🍎</div>
+        <div class="food-item">🍇</div><div class="food-item">🥪</div>
+      </div>
+    </div>
+    <button onclick="backToMenu()">Back</button>
+  </div>
+
+  <div id="sleep-area">
+    <h3>🛌 Sleep Time!</h3>
+    <div class="bed-box">
+      <div class="zzz">Zzz...</div>
+      <div class="pet" id="sleepPet">🐱</div>
+      <div class="timer" id="countdown">Timer not set</div>
+    </div>
+    <div class="controls">
+      <div>
+        <label for="sleepTime">Set Sleep Time (sec): </label>
+        <input type="number" id="sleepTime" min="1" max="999" />
+      </div>
+      <button onclick="startSleep()">Start Sleep</button>
+      <button onclick="backToMenu()">Wake Up</button>
+    </div>
+  </div>
+
+  <div id="outing-area">
+    <h3>🌆 Outdoor Adventure</h3>
+    <div class="scene">
+      <div class="cloud">☁️</div>
+      <div class="sun">☀️</div>
+      <div class="moon">🌙</div>
+      <div class="stars"></div>
+      <div class="butterfly">🧯</div>
+      <div class="pet" id="pet-outing">🐱</div>
+      <div id="flash"></div>
+    </div>
+    <div class="row-buttons">
+      <button onclick="walkPet()">🚶 Go for a Walk</button>
+      <button onclick="stopWalk()">🚖 Stop</button>
+      <button onclick="takeSelfie()">📸 Take a Selfie</button>
+      <button onclick="backToMenu()">🔙 Back</button>
+    </div>
+  </div>
+
+  <script src="../js/pet.js"></script>
+</body>
+</html>

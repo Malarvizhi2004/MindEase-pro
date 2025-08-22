@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Memory Calendar & Reminders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/calendar.css" />
+</head>
+<body>
+    <div class="header-bar">
+    <a href="../html/home.html" class="back-arrow" title="Go back" >← Back</a>
+
+  <h1>📅 Memory Calendar</h1>
+  </div>
+  <div class="calendar">
+    <div class="header">
+      <button  class="prev"onclick="prevMonth()">&lt; Prev</button>
+      <h2  class="month"id="monthYear"></h2>
+      <button onclick="nextMonth()">Next &gt;</button>
+    </div>
+
+    <div class="days">
+      <div class="day">Sun</div><div class="day">Mon</div><div class="day">Tue</div>
+      <div class="day">Wed</div><div class="day">Thu</div><div class="day">Fri</div><div class="day">Sat</div>
+    </div>
+
+    <div class="dates" id="dates"></div>
+
+    <div class="add-memory">
+      <input type="text" id="memoryInput" placeholder="Add memory..." />
+      <button onclick="addMemory()">Add</button>
+    </div>
+  </div>
+
+  <div class="reminder-container">
+    <h2>🔔 Set Reminder</h2>
+    <div class="reminder-form">
+      <input type="time" id="reminderTime" />
+      <textarea id="reminderText" rows="2" placeholder="Reminder..."></textarea><br>
+      <button onclick="addReminder()">Add Reminder</button>
+    </div>
+    <div id="reminderList"></div>
+  </div>
+  <footer class="footer">
+  <p>&copy; 2025 Memory Calendar. All rights reserved.</p>
+</footer>
+
+
+  <script src="../js/calendar.js"></script>
+</body>
+</html>

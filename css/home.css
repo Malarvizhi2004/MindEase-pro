@@ -1,0 +1,403 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #ede7f6);
+  color: #2c3e50;
+  overflow-x: hidden;
+  transition: background 0.5s ease;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(14px);
+  padding: 1.2rem 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: slideDown 0.8s ease forwards;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6a1b9a;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #d1c4e9;
+  transform: rotate(-1deg);
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.1) rotate(2deg);
+  color: #8e24aa;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #512da8;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: background 0.3s, transform 0.2s ease;
+}
+
+.nav-links li a:hover {
+  background: #ede7f6;
+  transform: scale(1.1);
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+  text-align: center;
+  margin-top: 3rem;
+  animation: slideUp 1s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Emoji Mood Grid */
+.emoji-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.emoji-grid a {
+  font-size: 2.5rem;
+  padding: 1.4rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  border: 2px solid #ab47bc;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.emoji-grid a:hover {
+  background: #f3e5f5;
+  transform: scale(1.25) rotate(5deg);
+  box-shadow: 0 18px 30px rgba(171,71,188,0.2);
+}
+
+/* Motivational Quote */
+.quote {
+  margin-top: 2.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.quote h3 {
+  font-size: 1.6rem;
+  color: #7b1fa2;
+}
+
+.quote p {
+  font-style: italic;
+  color: #333;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* 🔥 Chatbot Icon - Responsive */
+.chatbot-icon {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7b1fa2, #ba68c8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.chatbot-icon:hover {
+  transform: scale(1.15) rotate(5deg);
+  background: #9c27b0;
+}
+
+/* Chatbox */
+.chatbot-box {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 300px;
+  background: #fff9fe;
+  border: 1px solid #ce93d8;
+  border-radius: 20px;
+  padding: 1.2rem;
+  display: none;
+  animation: popUp 0.3s ease-in-out;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+@keyframes popUp {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.chat-options button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  margin: 0.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.chat-options button:hover {
+  transform: scale(1.3);
+}
+
+/* Footer */
+.custom-footer {
+  background: #5e1795;
+  color: white;
+  padding: 2rem 1rem;
+  position: relative;
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 0.95rem;
+}
+
+.custom-footer hr {
+  border: none;
+  border-top: 1px solid #a862e0;
+  margin-bottom: 1rem;
+  width: 95%;
+}
+
+.footer-content p {
+  margin: 4px 0;
+}
+
+.footer-bot img {
+  width: 40px;
+  height: 40px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #6a1b9a;
+}
+
+/* -------------------- 📱 MEDIA QUERIES -------------------- */
+
+/* Mobile (up to 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .chatbot-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .chatbot-box {
+    width: 90%;
+    left: 5%;
+    bottom: 70px;
+  }
+}
+
+/* Extra Small Screens (up to 600px) */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .emoji-grid a {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+
+  .quote h3 {
+    font-size: 1.3rem;
+  }
+
+  .quote p {
+    font-size: 1rem;
+  }
+
+  .chatbot-box {
+    width: 90%;
+    right: 5%;
+    bottom: 80px;
+  }
+
+  .custom-footer {
+    font-size: 0.8rem;
+    padding: 1.5rem 0.8rem;
+  }
+}
+
+/* Tablet (601px–1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .logo {
+    font-size: 2.2rem;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .emoji-grid a {
+    font-size: 2.2rem;
+    padding: 1.2rem;
+  }
+
+  .quote h3 {
+    font-size: 1.4rem;
+  }
+
+  .quote p {
+    font-size: 1.1rem;
+  }
+
+  .chatbot-box {
+    width: 260px;
+  }
+
+  .custom-footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* For very small screens (up to 320px width) */
+@media screen and (max-width: 320px) {
+  body {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+    font-size: 12px;
+  }
+
+  .search-bar {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .chatbot-icon {
+   
+    width: 40px;
+    height: 40px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .chatbot-icon img {
+    width: 100%;
+    height: 100%;
+  }
+}

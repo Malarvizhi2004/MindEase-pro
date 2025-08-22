@@ -1,0 +1,362 @@
+:root {
+  --calm: #90e0ef;
+  --peace: #80ed99;
+  --soft: #fbc4ab;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(120deg, var(--calm), var(--peace), var(--soft));
+  background-size: 600% 600%;
+  animation: gradientShift 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  color: #333;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid var(--soft);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+select, textarea {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid var(--peace);
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  height: 90px;
+}
+
+button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--calm), var(--peace));
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 2px solid var(--peace);
+  outline: none;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px var(--soft);
+}
+
+.filter {
+  margin: 20px 0;
+}
+
+.entry {
+  background: rgba(255, 255, 255, 0.8);
+  border-left: 5px solid;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  padding: 15px 20px 50px 20px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.entry .mood {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.entry.happy    { border-color: #ffe066; }
+.entry.sad      { border-color: var(--calm); }
+.entry.angry    { border-color: #ff6b6b; }
+.entry.tired    { border-color: #adb5bd; }
+.entry.calm     { border-color: var(--peace); }
+.entry.anxious  { border-color: #74b9ff; }
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.entry-buttons {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.entry-buttons button {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  background: var(--soft);
+  color: #333;
+  border: 1px solid #e8bfa8;
+  font-weight: bold;
+}
+
+.entry-buttons button:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 8px var(--soft);
+}
+
+.delete-btn {
+  background: #e53935;
+  color: #fff;
+  border: 1px solid #c62828;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  animation: fadeInScale 0.3s ease;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeInScale {
+  from { transform: scale(0.95); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.modal-content textarea {
+  height: 100px;
+}
+
+.close-btn {
+  background: #888;
+  color: white;
+  border: 1px solid #666;
+}
+
+.close-btn:hover {
+  background: #666;
+}
+/* ✅ Base wrapper ensures space for back-arrow */
+.whole {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding-top: 80px;   /* reserve vertical space */
+}
+
+
+/* Back Arrow */
+.back-arrow {
+  position: absolute;   /* floats on top-left */
+  top: 20px;
+  left: 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #0c0b0f;
+  padding: 8px 16px;
+  border-radius: 25px;
+  border: 2px solid #afecb9;
+  background: rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.back-arrow:hover {
+  transform: scale(1.08) translateX(-3px);
+  background-color: #afecb9;
+  color: #fff;
+}
+
+/* ------------------ Tablet (max-width: 1024px) ------------------ */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .back-arrow {
+    top: 15px;
+    left: 15px;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ------------------ Mobile (max-width: 768px) ------------------ */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  select, textarea, button {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .back-arrow {
+    top: 12px;
+    left: 12px;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ------------------ Small Mobile (max-width: 480px) ------------------ */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  select, textarea, button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .back-arrow {
+    top: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+}
+
+
+
+
+
+/* ------------------ Tablet (max-width: 1024px) ------------------ */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .back-arrow {
+    top: 15px;
+    left: 15px;
+    font-size: 0.95rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ------------------ Mobile (max-width: 768px) ------------------ */
+@media (max-width: 768px) {
+  .container {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  select, textarea, button {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .back-arrow {
+    top: 12px;
+    left: 12px;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+  }
+}
+
+/* ------------------ Small Mobile (max-width: 480px) ------------------ */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  select, textarea, button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .back-arrow {
+    top: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+}

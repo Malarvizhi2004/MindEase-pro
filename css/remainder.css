@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+  color: white;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #000;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.section {
+  margin: 20px 0;
+}
+
+canvas {
+  max-width: 100%;
+}
+
+.badge {
+  display: inline-block;
+  background: #ffffff22;
+  margin: 4px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ffffff55;
+}
+
+
+/* ------------------ Tablets (<= 768px) ------------------ */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .section {
+    margin: 15px 0;
+  }
+
+  .badge {
+    padding: 6px 10px;
+    font-size: 0.9em;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ------------------ Mobile (<= 480px) ------------------ */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .section {
+    margin: 10px 0;
+  }
+
+  .badge {
+    padding: 5px 8px;
+    font-size: 0.8em;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+  }
+}

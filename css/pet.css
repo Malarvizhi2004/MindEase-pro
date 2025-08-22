@@ -1,0 +1,658 @@
+:root {
+  --calm: #90e0ef;
+  --peace: #80ed99;
+  --soft: #fbc4ab;
+  --text-dark: #2d2d2d;
+  --accent: #ff6f61;
+  --white-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(120deg, var(--calm), var(--peace), var(--soft));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow-x: hidden;
+  color: var(--text-dark);
+  animation: bgFlow 15s ease infinite;
+}
+
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  margin: 10px;
+  font-size: 2.5em;
+  color: #222;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+  animation: fadeIn 1.2s ease;
+}
+
+select,
+input,
+button {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  font-size: 1em;
+  background: var(--white-bg);
+  color: var(--text-dark);
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+select:focus,
+input:focus,
+button:focus {
+  outline: none;
+  border-color: var(--soft);
+  box-shadow: 0 0 10px var(--soft);
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #73ddba;
+}
+
+#menu,
+#game-area,
+#eat-area,
+#sleep-area,
+#outing-area {
+  display: none;
+  width: 100%;
+  max-width: 650px;
+  background: var(--white-bg);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+  border: 2px solid var(--peace);
+  transition: all 0.4s ease;
+}
+
+#pet-emoji {
+  font-size: 80px;
+}
+
+.menu-btn {
+  background: var(--accent);
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 2px solid #fff;
+}
+
+.menu-btn:hover {
+  background: #e5564c;
+  transform: scale(1.05);
+}
+
+#game-box {
+  width: 300px;
+  height: 400px;
+  background: #e0f7fa;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid var(--calm);
+  box-shadow: var(--shadow);
+}
+
+#catcher {
+  font-size: 50px;
+  position: absolute;
+  bottom: 10px;
+  left: 130px;
+  transition: left 0.1s;
+}
+
+.ball {
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+#score {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.food-container {
+  background: #fff;
+  border: 2px solid var(--accent);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+  box-shadow: var(--shadow);
+}
+
+.food-pet {
+  font-size: 70px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.reaction {
+  font-size: 22px;
+  margin-top: 10px;
+  height: 30px;
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.food-tray {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 10px 0;
+  position: relative;
+}
+
+.food-item {
+  font-size: 40px;
+  cursor: pointer;
+  flex-shrink: 0;
+  animation: scroll 10s linear infinite;
+  transition: transform 0.3s;
+}
+
+.food-tray.paused .food-item {
+  animation-play-state: paused;
+}
+
+.food-item:hover {
+  transform: scale(1.5);
+}
+
+@keyframes scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-120%); }
+}
+
+.food-fly {
+  position: absolute;
+  font-size: 40px;
+  animation: flyToPet 1s forwards;
+}
+
+@keyframes flyToPet {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px);
+    opacity: 0;
+  }
+}
+
+#city {
+  background: url('https://i.imgur.com/lNxUEW3.png');
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  animation: moveCity 10s linear infinite;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+@keyframes moveCity {
+  0% { background-position: 0 0; }
+  100% { background-position: -1000px 0; }
+}
+
+#walking-pet {
+  font-size: 50px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: walk 4s linear infinite;
+}
+
+@keyframes walk {
+  0% { left: 10%; }
+  100% { left: 90%; }
+}
+
+#sleep-area {
+  background: linear-gradient(to top right, #0b0c1a, #1a1f33);
+  color: white;
+}
+
+.bed-box {
+  width: 300px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00bcd4;
+  border-radius: 25px;
+  position: relative;
+  box-shadow: 0 0 25px #00bcd4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.pet {
+  width: 120px;
+  height: 120px;
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: sleepMove 2s ease-in-out infinite alternate;
+}
+
+@keyframes sleepMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
+}
+
+.zzz {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  color: #66d9ef;
+  animation: floatZzz 2s infinite ease-in-out;
+}
+
+@keyframes floatZzz {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-20px); opacity: 0; }
+}
+
+.timer {
+  margin-top: 20px;
+  font-size: 1.2em;
+  text-align: center;
+  
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.controls button {
+  white-space: nowrap;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  background: linear-gradient(to right, #fdfbfb, #ebedee);
+  border: none;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.controls button:hover {
+  background: #d1d1d1;
+  transform: scale(1.05);
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: linear-gradient(to top, #2b5876, #4e4376);
+  border-radius: 20px;
+  margin: 10px 0;
+  box-shadow: var(--shadow);
+}
+
+#outing-area {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.cloud,
+.moon,
+.sun,
+.stars,
+.butterfly {
+  position: absolute;
+  animation: float 10s infinite ease-in-out;
+}
+
+.cloud {
+  top: 80px;
+  left: 0;
+  font-size: 40px;
+  animation: moveCloud 30s linear infinite;
+}
+
+.sun {
+  top: 40px;
+  right: 60px;
+  font-size: 50px;
+}
+
+.moon {
+  top: 40px;
+  left: 80%;
+  font-size: 40px;
+}
+
+.stars {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.3;
+}
+
+.butterfly {
+  top: 60%;
+  left: 20%;
+  font-size: 30px;
+  animation: fly 8s infinite linear;
+}
+
+@keyframes moveCloud {
+  0% { left: -100px; }
+  100% { left: 110%; }
+}
+
+@keyframes fly {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(50px, -30px); }
+  50% { transform: translate(100px, 0); }
+  75% { transform: translate(50px, 30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes flashAnim {
+  0% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+#flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.row-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.row-buttons button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.row-buttons button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+#outing-area .scene {
+  position: relative; /* Needed to anchor the pet inside */
+}
+
+#pet-outing {
+  position: absolute; /* Allows movement with left/top */
+  top: 50%; /* Vertical start point */
+  left: 0;  /* Horizontal start point */
+  transform: translateY(0);
+  transition: transform 0.1s linear;
+}
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #0c0b0f;
+  
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: 2px solid #afecb9;
+ 
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.back-arrow:hover {
+  transform: scale(1.08) translateX(-3px);
+  background-color: #afecb9;
+  color: #fff;
+}
+#menu,
+#game-area,
+#eat-area,
+#sleep-area,
+#outing-area {
+  position: relative; /* anchor for back-arrow */
+}
+
+/* ------------------ Tablets (<= 900px) ------------------ */
+@media (max-width: 900px) {
+
+
+  #outing-area .scene {
+    height: 250px; /* increase from 150px */
+  }
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  #menu,
+  #game-area,
+  #eat-area,
+  #sleep-area,
+  #outing-area {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  #game-box {
+    width: 250px;
+    height: 350px;
+  }
+
+  #catcher {
+    font-size: 40px;
+    left: 100px;
+  }
+
+  .ball {
+    font-size: 25px;
+  }
+
+  #pet-emoji {
+    font-size: 60px;
+  }
+
+  .food-container {
+    padding: 15px;
+  }
+
+  .food-pet {
+    font-size: 60px;
+  }
+
+  .food-item {
+    font-size: 35px;
+  }
+
+  .bed-box {
+    width: 250px;
+    height: 200px;
+  }
+
+  .pet {
+    font-size: 60px;
+  }
+
+  .zzz {
+    font-size: 1.5rem;
+  }
+
+  #walking-pet {
+    font-size: 40px;
+  }
+
+  #city {
+    height: 150px;
+  }
+
+  .scene {
+    height: 200px;
+  }
+
+  .row-buttons button,
+  .controls button,
+  .menu-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .back-arrow {
+    font-size: 1rem;
+    padding: 8px 14px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+/* ------------------ Mobile (<= 480px) ------------------ */
+@media (max-width: 480px) {
+
+
+  
+  h1 {
+    font-size:15px;
+  }
+
+  #game-box {
+    width: 200px;
+    height: 300px;
+  }
+
+  #catcher {
+    font-size: 35px;
+    left: 80px;
+  }
+
+  .ball {
+    font-size: 20px;
+  }
+
+  #pet-emoji {
+    font-size: 50px;
+  }
+
+  .food-pet {
+    font-size: 50px;
+  }
+
+  .food-item {
+    font-size: 30px;
+  }
+
+  .bed-box {
+    width: 200px;
+    height: 180px;
+  }
+
+  .pet {
+    font-size: 50px;
+  }
+
+  .zzz {
+    font-size: 1.2rem;
+  }
+
+  #walking-pet {
+    font-size: 35px;
+  }
+
+  #city {
+    height: 120px;
+  }
+
+  .scene {
+    height: 150px;
+  }
+
+  .row-buttons button,
+  .controls button,
+  .menu-btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  #outing-area {
+    max-width: 95%;
+  }
+
+  .back-arrow {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    top: 10px;
+    left: 10px;
+  }
+}

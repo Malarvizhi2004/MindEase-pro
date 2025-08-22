@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindEase - Home</title>
+  <link rel="stylesheet" href="../css/home.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+  <h1 class="logo">MindEase</h1>
+  
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="../html/profile.html">Profile</a></li>
+    <li><a href="../html/calendar.html">Calendar</a></li>
+    <li><a href="../html/analytics.html">Analytics</a></li>
+    <li><a href="../html/support.html">Support</a></li>
+  </ul>
+</nav>
+
+
+  <!-- ✅ Container -->
+  <div class="container">
+    <section class="section">
+      <h2>Welcome Back! 😊</h2>
+      <p>How are you feeling today?</p>
+    </section>
+
+    <section class="section emoji-grid">
+      <a onclick="selectMood('sad')">😢</a>
+      <a onclick="selectMood('angry')">😠</a>
+      <a onclick="selectMood('calm')">😌</a>
+      <a onclick="selectMood('happy')">😊</a>
+      <a onclick="selectMood('anxious')">😨</a>
+      <a onclick="selectMood('tired')">😴</a>
+    </section>
+
+    <section class="section quote">
+      <h3>Quote of the Day 🌟</h3>
+      <p id="quoteText">Loading inspirational quote...</p>
+    </section>
+  </div>
+
+  <!-- ✅ Chatbot -->
+  <div class="chatbot-icon" onclick="toggleChatbot()">🤖</div>
+  <div class="chatbot-box" id="chatbotBox">
+    <p>Hello! How are you feeling today?</p>
+    <div class="chat-options">
+      <button onclick="suggest('sad')">😢</button>
+      <button onclick="suggest('angry')">😠</button>
+      <button onclick="suggest('calm')">😌</button>
+      <button onclick="suggest('happy')">😊</button>
+      <button onclick="suggest('anxious')">😨</button>
+      <button onclick="suggest('tired')">😴</button>
+    </div>
+    <div id="chatResponse"></div>
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer class="custom-footer">
+    <hr />
+    <div class="footer-content">
+      <p>“You’ve survived 100% of your worst days.” 💙</p>
+      <p>© 2025 MindEase. All rights reserved.</p>
+    </div>
+    <div class="footer-bot"></div>
+  </footer>
+
+  <!-- ✅ JS -->
+  <script src="../js/home.js"></script>
+</body>
+</html>

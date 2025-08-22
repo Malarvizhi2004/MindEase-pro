@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fun Mini Games</title>
+  <link rel="stylesheet" href="../css/games.css">
+</head>
+<body>
+   <div class="header-bar">
+    <a href="../html/mood.html" class="back-arrow" title="Go back">← Back</a>
+
+  <h1 class="h1">🎮 Fun Mini Games</h1>
+  </div>
+  <nav>
+    <button onclick="showGame('match')">Emoji Match</button>
+    <button onclick="showGame('guess')">Number Guess</button>
+    <button onclick="showGame('bounce')">Catch the Ball</button>
+    <button onclick="showGame('reaction')">Reaction Time</button>
+  </nav>
+
+
+  <!-- Emoji Match -->
+  <div class="game-section active" id="match">
+    <h2>Emoji Match</h2>
+    <div class="rules">Flip two cards at a time to find matching emoji pairs. Match all to win!</div>
+    <div id="gameBoard"></div>
+    <div id="score">Score: 0</div>
+    <button class="control" onclick="startMatchGame()">Restart</button>
+  </div>
+
+  <!-- Number Guess -->
+  <div class="game-section" id="guess">
+    <h2>Guess the Number</h2>
+    <div class="rules">Try to guess the secret number between 1 and 20.</div>
+    <input type="number" id="userGuess" min="1" max="20" />
+    <br><button class="control" onclick="checkGuess()">Check</button>
+    <button class="control" onclick="resetGuess()">Reset</button>
+    <div id="guessResult"></div>
+  </div>
+
+  <!-- Catch the Ball -->
+  <div class="game-section" id="bounce">
+    <h2>Catch the Ball</h2>
+    <div class="rules">Use arrow keys to move the paddle and catch falling balls.</div>
+    <canvas class="ballcanvas" id="ballCanvas" width="300" height="400"></canvas>
+    <p id="catchScore">Score: 0</p>
+    <button class="control" onclick="startCatchGame()">Start</button>
+    <button class="control" onclick="stopCatchGame()">Stop</button>
+  </div>
+
+  <!-- Reaction Time -->
+  <div class="game-section" id="reaction">
+    <h2>Test Your Reaction</h2>
+    <div class="rules">Click as fast as you can when the box changes color. Too soon = fail!</div>
+    <button class="control" id="startReaction">Start</button>
+    <div id="reactionBox">Wait...</div>
+    <div id="reactionResult"></div>
+    <div id="bestReaction">Best: --</div>
+  </div>
+
+  <script src="../js/games.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile | MoodEase</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/profile.css" />
+</head>
+
+<body>
+  <div class="header-bar">
+    <a href="../html/home.html" class="back-arrow" title="Go back">← Back</a>
+  </div>
+
+  <div class="container">
+
+    <!-- Profile Section -->
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>User Profile</h1>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="profile-header">
+      <img id="profilePhoto" src="../Images/virat.jpg" alt="User Photo">
+      <div>
+        <label for="uploadPhoto">Change Photo</label>
+        <input type="file" id="uploadPhoto" accept="image/*" onchange="changePhoto(event)">
+      </div>
+    </div>
+
+    <form id="profileForm" class="readonly">
+      <div class="info-group">
+        <label>Name</label>
+        <input type="text" id="name" value="Malarvizhi" readonly>
+      </div>
+      <div class="info-group">
+        <label>Email</label>
+        <input type="email" id="email" value="malar@example.com" readonly>
+      </div>
+      <div class="info-group">
+        <label>Password</label>
+        <input type="password" id="password" value="********" readonly>
+      </div>
+      <div class="info-group">
+        <label>Login Date & Time</label>
+        <input type="text" id="loginTime" value="31 July 2025, 10:30 AM" readonly>
+      </div>
+      <button type="button" class="edit-btn" onclick="toggleEdit()">Edit Profile</button>
+    </form>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button onclick="showSection('reviews')">My Reviews</button>
+    <button onclick="showSection('about')">About Us</button>
+    <button onclick="showSection('contact')">Contact Us</button>
+  </div>
+
+  <!-- Review Section -->
+  <div class="container">
+    <!-- Review Section -->
+    <div class="section-content" id="reviews">
+      <h2>My Reviews</h2>
+      <div id="defaultReviews">
+        <div class="review">🌟🌟🌟🌟🌟<br>
+"MindEase really helps me relax after classes. I love the mood-based videos!"  
+<span>Posted on: 25 July
+            2025</span></div>
+        <div class="review">🌟🌟🌟🌟<br>"The journal and drawing pad are my favorite parts. Very easy to use."  <span>Posted on: 22 July 2025</span></div>
+      </div>
+      <div id="userReviews"></div>
+      <button class="review-btn" onclick="toggleReviewInput()">+ Write Review</button>
+      <div class="review-input" id="reviewInput" style="display: none;">
+        <textarea id="newReview" placeholder="Write your review here..."></textarea>
+        <button class="review-btn" onclick="addReview()">Add Review</button>
+      </div>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="section-content" id="about" style="display: none;">
+      <h2>About Us</h2>
+      <p>
+        MindEase is a mood-based web app designed to make life calmer and more joyful. It offers mood-based videos,
+        images, games, journaling, and a creative drawing pad — all in one place. Our mission is to help you explore
+        your emotions while staying relaxed and engaged.
+      </p>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="section-content" id="contact" style="display: none;">
+      <h2>Contact Us</h2>
+      <p>📧 Email: support@moodease.app</p>
+      <p>📞 Phone: +91 98765 43210</p>
+      <p>📍 Location: Chennai, India</p>
+      <p>🌐 Website: www.moodease.app</p>
+    </div>
+  </div>
+
+  </div>
+
+  <script src="../js/profile.js"></script>
+</body>
+
+</html>

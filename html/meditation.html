@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mind Relax - Breathing Meditation</title>
+  <link rel="stylesheet" href="../css/meditation.css">
+</head>
+<body>
+
+
+  <video id="bgVideo" autoplay muted loop>
+    <source src="../videos/breath.mp4" type="video/mp4">
+  </video>
+
+  <audio id="breathAudio" loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/09/audio_3c8483380d.mp3" type="audio/mp3">
+  </audio>
+  <div class="header-bar">
+    <a href="../html/mood.html" class="back-arrow" title="Go back">← Back</a>
+
+  <h1>🌿 Mind Relax Zone</h1>
+  <p class="intro">Take a deep breath, relax your mind, and begin your journey inward. 🌈✨</p>
+  </div>
+
+  <input type="number" id="durationInput" placeholder="Time in minutes" min="1" />
+
+  <button onclick="startMeditation()">Start Meditation</button>
+
+  <div class="circle" id="breatheCircle"></div>
+  <div class="instructions" id="instructionText">Inhale... Hold... Exhale... 🌬️</div>
+  <div id="countdown"></div>
+  <button id="stopBtn" style="display:none;" onclick="stopMeditation()">Stop</button>
+
+  <script src="../js/meditation.js"></script>
+</body>
+</html>

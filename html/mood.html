@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mood Support Tools</title>
+  <link rel="stylesheet" href="../css/mood.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+   <div class="header-bar">
+    <a href="../html/home.html" class="back-arrow" title="Go back">← Back</a>
+
+  <div class="emoji">😔</div>
+  </div>
+  <h1>Hi <span id="nickname"></span>,</h1>
+  <h2 id="moodSub">It's hard to hear that you're feeling sad...</h2>
+  <img id="avatar" src="" width="100" alt="avatar" />
+  <p id="moodMessage">Let’s try to lift your mood together.</p>
+
+  <button onclick="document.querySelector('.card-container').style.display='flex'">
+    ✨ Explore Support Tools
+  </button>
+
+  <div class="card-container">
+    <div class="card" onclick="openToolPage('games.html')">🎮</div>
+    <div class="card" onclick="openToolPage('video.html')">📹</div>
+    <div class="card" onclick="openToolPage('notes.html')">📝</div>
+    <div class="card" onclick="openToolPage('drawing-pad.html')">🎨</div>
+    <div class="card" onclick="openToolPage('journal.html')">📓</div>
+    <div class="card" onclick="openToolPage('themes.html')">🌈</div>
+    <div class="card" onclick="openToolPage('pet.html')">🐶</div>
+    <div class="card" onclick="openToolPage('meditation.html')">🧘‍♀️</div>
+  </div>
+
+  <script src="../js/mood.js"></script>
+</body>
+</html>

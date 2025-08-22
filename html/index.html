@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meditation Login</title>
+  <link rel="stylesheet" href="../css/index.css" />
+</head>
+<body>
+
+  <div class="container" id="authBox">
+    <h2 id="formTitle">Sign Up</h2>
+
+    <div class="input-group">
+      <input type="email" id="email" placeholder=" " required />
+      <label for="email">Email</label>
+    </div>
+
+    <div class="input-group">
+      <input type="password" id="password" placeholder=" " required />
+      <label for="password">Password</label>
+    </div>
+
+    <div class="input-group" id="confirmPasswordGroup">
+  <input type="password" id="confirmPassword" placeholder=" " />
+  <label for="confirmPassword">Confirm Password</label>
+</div>
+
+    <button id="authButton">Sign Up</button>
+    <div class="link" id="forgotPassword">Forgot Password?</div>
+    <div class="link" id="toggleForm">Already have an account? Sign In</div>
+    <div id="message"></div>
+  </div>
+
+  <div class="container" id="resetBox" style="display:none;">
+  <h2>Reset Password</h2>
+  <div class="input-group">
+    <input type="email" id="resetEmail" placeholder=" " required />
+    <label for="resetEmail">Email</label>
+  </div>
+  <div class="input-group">
+    <input type="password" id="newResetPassword" placeholder=" " required />
+    <label for="newResetPassword">New Password</label>
+  </div>
+  <button id="resetBtn">Reset Password</button>
+  <div class="link" id="backToLogin">Back to Login</div>
+  <div id="message"></div>
+</div>
+
+
+  <script src="../js/index.js"></script>
+</body>
+</html>

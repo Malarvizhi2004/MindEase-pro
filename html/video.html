@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood-Based 3D Video Gallery</title>
+  <link rel="stylesheet" href="../css/video.css">
+</head>
+<body>
+   <div class="header-bar">
+    <a href="../html/mood.html" class="back-arrow" title="Go back">← Back</a>
+
+<h1>🌈 What is your mood today?</h1>
+</div>
+
+<div class="mood-select">
+  <div class="mood-btn" onclick="selectMood('happy')">😊 Happy</div>
+  <div class="mood-btn" onclick="selectMood('sad')">😢 Sad</div>
+  <div class="mood-btn" onclick="selectMood('angry')">😠 Angry</div>
+  <div class="mood-btn" onclick="selectMood('calm')">😌 Calm</div>
+  <div class="mood-btn" onclick="selectMood('anxious')">😟 Anxious</div>
+  <div class="mood-btn" onclick="selectMood('dreamy')">🌙 Dreamy</div>
+</div>
+
+<div class="carousel">
+  <div class="cards" id="carouselCards"></div>
+</div>
+
+<h2 id="moodTitle"></h2>
+<div class="mood-videos" id="moodVideos"></div>
+<div id="youtubeLinks" class="youtube-links"></div>
+
+<div class="video-modal" id="videoModal">
+  <button class="close-btn" onclick="closeModal()">Close ✖</button>
+  <video id="fullscreenVideo" controls autoplay></video>
+  <div class="positive-message" id="positiveMsg"></div>
+</div>
+  <script src="../js/video.js"></script>
+</body>
+</html>

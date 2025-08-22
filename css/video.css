@@ -1,0 +1,319 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  :root {
+    --calm: #90e0ef;
+    --peace: #80ed99;
+    --soft: #fbc4ab;
+  }
+
+  body, html {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, var(--calm), var(--peace), var(--soft));
+    background-size: 400% 400%;
+    animation: gradientFlow 20s ease infinite;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+    margin: 20px;
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.5),
+      0 0 15px var(--soft),
+      0 0 25px var(--peace);
+  }
+
+  .mood-select {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .mood-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--calm);
+    background: rgba(255, 255, 255, 0.85);
+    color: #222;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.1em;
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(144, 224, 239, 0.4);
+  }
+
+  .mood-btn:hover {
+    background: var(--calm);
+    color: #000;
+    box-shadow: 0 0 15px var(--calm);
+    transform: scale(1.05);
+  }
+
+  .carousel {
+    perspective: 1200px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .cards {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+  }
+
+  .card {
+    position: absolute;
+    width: 220px;
+    height: 140px;
+    top: 50%;
+    left: 50%;
+    margin: -70px -110px;
+    border: 2px solid var(--soft);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(251, 196, 171, 0.5);
+    transition: 0.3s ease;
+    background: #fff;
+  }
+
+  .video-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+  }
+
+  .video-modal video {
+    width: 90%;
+    max-width: 800px;
+    max-height: 80%;
+    border-radius: 20px;
+    outline: none;
+  }
+
+  .positive-message {
+    color: #000;
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--peace);
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .mood-videos {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .mood-videos video {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+  }
+
+  .youtube-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto 60px;
+    padding: 10px;
+  }
+
+  .youtube-links a {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .youtube-links a:hover {
+    background: var(--soft);
+    color: #111;
+    box-shadow: 0 0 10px var(--soft);
+  }
+
+  @media (max-width: 600px) {
+    .mood-videos video {
+      width: 90vw;
+      height: auto;
+    }
+
+    .video-modal video {
+      width: 95vw;
+      height: auto;
+    }
+  }
+  .back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #f0eaff;
+  background-color: rgba(14, 13, 13, 0.7);
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: 2px solid #ecafd5;
+  box-shadow: 0 4px 12px rgba(179, 136, 255, 0.3);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.back-arrow:hover {
+  transform: scale(1.08) translateX(-3px);
+  background-color: #ecafd5;
+  color: #fff;
+}
+
+/* -------------------- TABLET STYLES (≤ 900px) -------------------- */
+@media (max-width: 900px) {
+  h1, h2, h3 {
+    font-size: 1.8em;
+    margin: 15px;
+  }
+
+  .mood-btn {
+    padding: 8px 16px;
+    font-size: 1em;
+  }
+
+  .carousel {
+    height: 250px;
+  }
+
+  .cards {
+    height: 180px;
+  }
+
+  .card {
+    width: 180px;
+    height: 120px;
+    margin: -60px -90px;
+  }
+
+  .mood-videos video {
+    width: 95%;
+  }
+
+  .video-modal video {
+    width: 95%;
+  }
+
+  .youtube-links a {
+    width: 95%;
+  }
+
+  .back-arrow {
+    font-size: 1rem;
+    padding: 8px 14px;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+/* -------------------- MOBILE STYLES (≤ 480px) -------------------- */
+@media (max-width: 480px) {
+  h1, h2, h3 {
+    font-size: 1.5em;
+
+      margin: 50px 10px 10px; 
+  }
+
+  .mood-btn {
+    padding: 6px 12px;
+    font-size: 0.95em;
+  }
+
+  .carousel {
+    height: 200px;
+  }
+
+  .cards {
+    height: 150px;
+  }
+
+   .card {
+    width: 150px;
+    height: 100px;
+  }
+  .mood-videos video {
+    width: 90vw;
+    height: auto;
+  }
+
+  .video-modal video {
+    width: 95vw;
+    height: auto;
+  }
+
+  .youtube-links a {
+    width: 90%;
+    font-size: 0.9em;
+    padding: 6px 10px;
+  }
+
+.back-arrow {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    top: 8px;        /* stays at the top */
+    left: 8px;       /* small margin from left */
+    z-index: 1100;   /* always above content */
+  }
+}

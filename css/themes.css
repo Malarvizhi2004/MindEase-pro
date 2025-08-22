@@ -1,0 +1,386 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+h1, h2, h3 {
+
+  text-align: center;
+}
+
+.section {
+  padding: 20px;
+}
+
+.games-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.game-box {
+  background-color: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  min-width: 320px;
+  max-width: 500px;
+  flex: 1;
+}
+
+.theme-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.theme-btn {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.theme-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.bubbles {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.bubble {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.bubble.red { background-color: #ff6b6b; }
+.bubble.green { background-color: #51cf66; }
+.bubble.blue { background-color: #339af0; }
+.bubble.yellow { background-color: #fdd835; }
+
+.active {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 0 25px white;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #74c0fc;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #4dabf7;
+}
+
+.rules {
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+#status {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.color-boxes {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.color-box {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+}
+
+.sliders label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.sliders input[type="range"] {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #0c0b0f;
+  
+  padding: 10px 18px;
+  border-radius: 30px;
+  border: 2px solid #afecb9;
+ 
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.back-arrow:hover {
+  transform: scale(1.08) translateX(-3px);
+  background-color: #afecb9;
+  color: #fff;
+}
+
+/* ------------------ Tablets (<= 768px) ------------------ */
+@media screen and (max-width: 768px) {
+  .games-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .game-box {
+    min-width: 90%;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .theme-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bubbles {
+    grid-template-columns: repeat(2, 80px);
+    gap: 15px;
+  }
+
+  .color-boxes {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .color-box {
+    width: 80px;
+    height: 80px;
+  }
+
+  .sliders input[type="range"] {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .back-arrow {
+    padding: 8px 14px;
+    font-size: 1rem;
+  }
+}
+
+
+
+
+/* ------------------ Tablets (<= 1024px) ------------------ */
+@media screen and (max-width: 1024px) {
+  .theme-options{
+      display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  }
+
+  .color-boxes{
+     display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+  }
+  .games-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .game-box {
+    min-width: 45%;
+    max-width: 45%;
+    padding: 18px;
+  }
+
+  .back-arrow {
+    top: 15px;
+    left: 15px;
+    padding: 9px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* ------------------ Small Tablets & Large Phones (<= 768px) ------------------ */
+@media screen and (max-width: 768px) {
+  .games-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .game-box {
+    min-width: 90%;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .theme-options {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .bubbles {
+    grid-template-columns: repeat(2, 80px);
+    gap: 15px;
+  }
+
+  .color-boxes {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .color-box {
+    width: 80px;
+    height: 80px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .back-arrow {
+    top: 12px;
+    left: 12px;
+    padding: 7px 14px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ------------------ Mobile Phones (<= 480px) ------------------ */
+@media screen and (max-width: 480px) {
+  h1, h2, h3 {
+    font-size: 1.3rem;
+  }
+
+  .games-container {
+    gap: 15px;
+  }
+
+  .game-box {
+    min-width: 200px;
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .bubbles {
+    grid-template-columns: repeat(2, 70px);
+    gap: 12px;
+  }
+
+  .bubble {
+    width: 70px;
+    height: 70px;
+  }
+
+  .color-box {
+    width: 70px;
+    height: 70px;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .back-arrow {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+/* ------------------ Extra Small Mobile (<= 320px) ------------------ */
+@media screen and (max-width: 320px) {
+  h1, h2, h3 {
+    font-size: 1.1rem;
+  }
+
+  .game-box {
+    padding: 10px;
+  }
+
+  .bubbles {
+    grid-template-columns: repeat(2, 60px);
+    gap: 10px;
+  }
+
+  .bubble {
+    width: 60px;
+    height: 60px;
+  }
+
+  .color-box {
+    width: 60px;
+    height: 60px;
+  }
+
+  button {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+
+  .back-arrow {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    top: 8px;
+    left: 8px;
+  }
+}

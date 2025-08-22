@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('../Images/signin123.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glassmorphic Card */
+.container {
+  position: relative;
+  width: 350px;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 255, 255, 0.3);
+}
+
+h2 {
+  text-align: center;
+  color: #ffeb3b;
+  margin-bottom: 30px;
+}
+
+/* Floating Label Group */
+.input-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 16px 10px 8px 10px;
+  font-size: 16px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: transparent;
+}
+
+.input-group label {
+  position: absolute;
+  left: 10px;
+  top: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Floating effect */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 5px;
+  font-size: 13px;
+  color: #00e6e6;
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #00c2ff, #4caf50);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #00ffc8, #00e6e6);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Link Texts */
+.link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #00e6e6;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  text-decoration: underline;
+  color: #00ffc8;
+}
+
+/* Message */
+#message {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+  transition: background-color 9999s ease-out 0s;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 📱 Mobile (max 600px) */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+    padding: 25px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  .input-group input {
+    font-size: 14px;
+    padding: 14px 8px 6px 8px;
+  }
+  .input-group label {
+    font-size: 14px;
+  }
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+  .link {
+    font-size: 12px;
+  }
+}
+
+/* 📱💻 Tablet (600px–1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    width: 400px;
+    padding: 35px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .input-group input {
+    font-size: 15px;
+  }
+  button {
+    font-size: 15px;
+    padding: 13px;
+  }
+}

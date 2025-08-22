@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Audio Journal</title>
+  <link rel="stylesheet" href="../css/notes.css" />
+</head>
+<body>
+  <a href="../html/mood.html" class="back-arrow" title="Go back">← Back</a>
+  <div class="header-bar">
+   
+  <h1>🎧 Mood-Based Audio Journal</h1>
+</div>
+  <div class="container">
+    <!-- LEFT COLUMN -->
+    <div class="column">
+      <label for="mood">Select Your Mood:</label>
+      <select id="mood" onchange="handleMoodChange()">
+        <option value="">-- Choose Mood --</option>
+        <option value="happy">😊 Happy</option>
+        <option value="sad">😢 Sad</option>
+        <option value="anxious">😰 Anxious</option>
+        <option value="angry">😡 Angry</option>
+        <option value="relaxed">😌 Relaxed</option>
+      </select>
+      <p id="suggestionText"></p>
+
+      <h3>🎵 Songs for Your Mood</h3>
+      <div id="songList"></div>
+
+     <h3>🎙️ Record Your Voice</h3>
+<button onclick="startRecording()">⏺️ Start Recording</button>
+<button onclick="stopRecording()">⏹️ Stop & Save</button>
+<button onclick="saveAudioEntry()">💾 Save Audio Entry</button>
+
+      <div id="recordingsList"></div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="column">
+      <h3>✍️ Write Your Thoughts</h3>
+      <textarea id="customText" placeholder="Write how you're feeling..."></textarea>
+      <button onclick="playCustomText()">🔊 Play</button>
+      <button onclick="saveMyText()">💾 Save Entry</button>
+      <button onclick="toggleSaved()">📂 Show/Hide Saved Entries</button>
+    </div>
+  </div>
+
+  <div class="saved-container" id="savedItems" style="display:none;">
+    <h3>📂 Saved Entries</h3>
+    <div class="saved-list" id="savedList"></div>
+  </div>
+
+  <script src="../js/notes.js"></script>
+</body>
+</html>
